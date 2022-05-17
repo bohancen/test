@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
 <body>
-  <button id="button">键盘</button>
-  <div id="keybord"></div>
-  <script>
-    document.querySelector('#button').onclick=function(){
-      let keybord_el = document.querySelector('#keybord')
-      let input_el = document.createElement('input')
-      input_el.type = 'text'
-      keybord_el.innerHTML = ''
-      keybord_el.appendChild(input_el)
-      input_el.focus()
-    }
-  </script>
+    <button id="button1">同步键盘</button>
+    <button id="button2">异步键盘</button>
+    <div id="keybord"></div>
+    <script>
+        document.querySelector('#button1').onclick = function () {
+            let keybord_el = document.querySelector('#keybord')
+            let input_el = document.createElement('input')
+            input_el.type = 'text'
+            keybord_el.innerHTML = ''
+            keybord_el.appendChild(input_el)
+            input_el.focus()
+        }
+        document.querySelector('#button2').onclick = function () {
+            setTimeout(() => {
+                let keybord_el = document.querySelector('#keybord')
+                let input_el = document.createElement('input')
+                input_el.type = 'text'
+                keybord_el.innerHTML = ''
+                keybord_el.appendChild(input_el)
+                input_el.focus()    
+            }, 500);
+            
+        }
+    </script>
 </body>
+
 </html>
