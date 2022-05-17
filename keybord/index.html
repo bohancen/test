@@ -9,8 +9,9 @@
 </head>
 
 <body>
-    <button id="button1">同步键盘</button>
-    <button id="button2">异步键盘</button>
+    <button id="button1">创建input并focus</button>
+    <button id="button2">创建input异步focus</button>
+    <button id="button3">异步创建键盘并focus</button>
     <div id="keybord"></div>
     <script>
         document.querySelector('#button1').onclick = function () {
@@ -22,6 +23,16 @@
             input_el.focus()
         }
         document.querySelector('#button2').onclick = function () {
+            let keybord_el = document.querySelector('#keybord')
+            let input_el = document.createElement('input')
+            input_el.type = 'text'
+            keybord_el.innerHTML = ''
+            keybord_el.appendChild(input_el)
+            setTimeout(() => {
+                input_el.focus()    
+            }, 1000);
+        }
+        document.querySelector('#button3').onclick = function () {
             setTimeout(() => {
                 let keybord_el = document.querySelector('#keybord')
                 let input_el = document.createElement('input')
@@ -29,8 +40,7 @@
                 keybord_el.innerHTML = ''
                 keybord_el.appendChild(input_el)
                 input_el.focus()    
-            }, 500);
-            
+            }, 1000);   
         }
     </script>
 </body>
